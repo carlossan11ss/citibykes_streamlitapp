@@ -68,7 +68,6 @@ def load_and_proccess_data():
 data = load_and_proccess_data()
 
 st.markdown('### Cantidad de viajes en bicicleta por tipo de usuario y por género, con filtro de edades')
-
 st.caption('FILTROS')
 
 unused1, intercolspace, unused2 = st.columns((1, 8, 1))
@@ -93,16 +92,18 @@ filtered_data_plot1 = data[(data['Edad'] >= edad_input1[0]) &
                            (data['usertype'].isin(tipo_usuario_input_))]
 
 
-#Graficar
+if filtered_data_plot1.shape[0] != 0: 
+    #Graficar
+    fig1 = px.histogram(filtered_data_plot1, x='usertype', color='genero',barmode='group')
+    fig1.update_xaxes(title_text='Tipo de Usuario')
+    fig1.update_yaxes(title_text='Cantidad de Viajes')
+    st.plotly_chart(fig1)
 
-fig1 = px.histogram(filtered_data_plot1, x='usertype', color='genero',barmode='group')
-fig1.update_xaxes(title_text='Tipo de Usuario')
-fig1.update_yaxes(title_text='Cantidad de Viajes')
-st.plotly_chart(fig1)
-
-#Texto complementario
-"""En esta gráfica podemos ver de qué género son los usuarios de cada tipo, también podemos determinar que
- tipo de usuario utiliza más los servicios de Citibikes"""
+    #Texto complementario
+    """En esta gráfica podemos ver de qué género son los usuarios de cada tipo, también podemos determinar que
+    tipo de usuario utiliza más los servicios de Citibikes"""
+else:
+    st.warning('No hay datos con los filtros seleccionados')
 
 st.markdown('### Mapa de la densidad de los viajes en bicicleta según las características del usuario')
 st.caption('FILTROS')
