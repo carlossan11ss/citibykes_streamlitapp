@@ -105,8 +105,6 @@ st.plotly_chart(fig1)
  tipo de usuario utiliza más los servicios de Citibikes"""
 
 st.markdown('### Mapa de la densidad de los viajes en bicicleta según las características del usuario')
-st.markdown('# ')
-
 st.caption('FILTROS')
 
 # Recolectar input del usuario
