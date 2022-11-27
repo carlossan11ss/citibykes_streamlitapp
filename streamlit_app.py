@@ -67,7 +67,7 @@ def load_and_proccess_data():
     return data
 data = load_and_proccess_data()
 
-st.markdown('### Cantidad de viajes en bicicleta por tipo de usuario y por género, Con filtro de edades')
+st.markdown('### Cantidad de viajes en bicicleta por tipo de usuario y por género, con filtro de edades')
 
 st.caption('FILTROS')
 
