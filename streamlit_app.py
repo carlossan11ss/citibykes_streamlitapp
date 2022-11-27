@@ -15,7 +15,13 @@ st.set_page_config(page_title='CityBikes',
 
 st.title('Exploración de datos de CityBikes')
 st.subheader('Visualizaciones interactivas')
+st.markdown("""
+Integrantes:
+- Federico Higuera
+- Carlos Sánchez
+- Cristian Ospina
 
+""")
 # Cargar datos
 @st.cache
 def load_and_proccess_data():
